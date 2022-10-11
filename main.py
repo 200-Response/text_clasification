@@ -5,6 +5,7 @@
 #------------------------- IMPORTS ----------------------------------------
 #--------------------------------------------------------------------------
 import json
+from statistics import mode
 #extra html
 import urllib.request
 #get only text data from html
@@ -12,7 +13,6 @@ from bs4 import BeautifulSoup
 #regex -> can be use for replacing a removing words, digits etc on a text
 import re
 import tensorflow as tf
-from tensorflow import keras
 from keras.preprocessing.text import Tokenizer
 from keras_preprocessing.sequence import pad_sequences
 import numpy as np
@@ -183,6 +183,7 @@ model.compile(loss='binary_crossentropy',
               metrics=['accuracy'])
 
 model.summary()
+model.save("./model_trained")
 
 #------------------------------------------------------------------------------------------
 #-----AQUI ENTRENAMOS A LA IA - mediante ephochs (ciclos de entrenamiento para una IA)-----
