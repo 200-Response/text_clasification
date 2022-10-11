@@ -5,7 +5,6 @@
 #------------------------- IMPORTS ----------------------------------------
 #--------------------------------------------------------------------------
 import json
-from statistics import mode
 import os
 #extra html
 import urllib.request
