@@ -94,9 +94,7 @@ result = result.lower()
 #**************load training json data  - example https://storage.googleapis.com/laurencemoroney-blog.appspot.com/sarcasm.json from https://rishabhmisra.github.io/publications/
 #--------------------------------------------------------------------------
 
-with open("C:/Users/fenix/Documents/documentos/HACKATHON/stereotype.json",
-          'r',
-          encoding='cp437') as f:
+with open("./stereotype.json", 'r', encoding='cp437') as f:
     datastore = json.load(f)
 
 for item in datastore:
