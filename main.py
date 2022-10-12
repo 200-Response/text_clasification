@@ -96,10 +96,8 @@ result = result.lower()
 #*************************************************************************************************************************************************************************
 #  Load training json data  - example https://storage.googleapis.com/laurencemoroney-blog.appspot.com/sarcasm.json from https://rishabhmisra.github.io/publications/
 #*************************************************************************************************************************************************************************
-
-with open(currentPath + "/text_clasification/stereotype.json",
-          'r',
-          encoding='cp437') as f:
+print(currentPath)
+with open(currentPath + "/stereotype.json", 'r', encoding='cp437') as f:
     datastore = json.load(f)
 
 for item in datastore:
@@ -150,8 +148,7 @@ testing_labels = np.array(testing_labels)
 #***********************************************************************************************************************************************************
 #OPCION 1
 #SI YA TENEMOS UN MODELO DESCARGADO Y ENTREDADO , PODEMOS CARGAR EN LA VARIABLE MODEL
-model = tf.keras.models.load_model(currentPath +
-                                   "/text_clasification/model_trained")
+model = tf.keras.models.load_model(currentPath + "/model_trained")
 #OPCION 2
 #SI NO TE SE TIENE UN MODELO , PODEMOS CONSTRUIRLO Y ENTRENARLO DE 0 , LLAMANDO LA SIGUIENTE FUNCIO Y LUEGO , CARGAR ESE MODELO EN LA VARIABLE MODEL
 # model_generator(vocab_size=vocab_size,
