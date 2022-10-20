@@ -17,3 +17,7 @@ IA con tensorflow &amp; python para clasificar textos
 #
 
 # $ conda deactivate
+
+UTILIZA UVICORN PARA CORRER EL SERVIDOR + fastapi
+
+# $ uvicorn <nombre_de_archivo>:app --reload
