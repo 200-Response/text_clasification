@@ -99,7 +99,7 @@ testing_labels = np.array(testing_labels)
 #***********************************************************************************************************************************************************
 #OPCION 1
 #SI YA TENEMOS UN MODELO DESCARGADO Y ENTREDADO , PODEMOS CARGAR EN LA VARIABLE MODEL
-model = tf.keras.models.load_model(currentPath + "/model_trained")
+model = tf.keras.models.load_model(currentPath + "/model_trained_spanish")
 
 #OPCION 2
 #SI NO TE SE TIENE UN MODELO , PODEMOS CONSTRUIRLO Y ENTRENARLO DE 0 , LLAMANDO LA SIGUIENTE FUNCIO Y LUEGO , CARGAR ESE MODELO EN LA VARIABLE MODEL
@@ -140,9 +140,9 @@ model = tf.keras.models.load_model(currentPath + "/model_trained")
 #SI UNA ORACION NO TIENE SARCASMO , será igual a 1
 def predictor_fn(text):
     sentence = [
-        "She has employees who regularly tell her what they think she's doing wrong and where she should best spend the company's money, without any knowledge of the financial statements. He doesn't think those same employees would feel free to give so much unsolicited advice and feedback to a male CEO.",
+        "Las mujeres de ahora solo se saben quejar y ni cocinar saben.",
     ]
-    sequences = tokenizer.texts_to_sequences(sentence)
+    sequences = tokenizer.texts_to_sequences(text)
     padded = pad_sequences(sequences,
                            maxlen=max_length,
                            padding=padding_type,
@@ -207,8 +207,10 @@ def read_item(request: Request):
     #converting to lowercase
     result = result.lower()
 
+    print(float(predictor_fn(result)[0] - 1))
+
     #*************************************************************************************************************************************************************************
     #                                               PREDICTING
     #*************************************************************************************************************************************************************************
 
-    return {"text": (int(predictor_fn(result)[0]) * 10) / 100}
+    return {"result": float(predictor_fn(result)[0] - 1)}

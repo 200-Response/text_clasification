@@ -70,5 +70,5 @@ def model_generator(vocab_size, embedding_dim, max_length, training_padded,
                         validation_data=(testing_padded, testing_labels),
                         verbose=2)
 
-    model.save(currentPath + "/text_clasification/model_trained")
+    model.save(currentPath + "/text_clasification/model_trained_spanish")
     print("Modelo creado exitosamente")
